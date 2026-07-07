@@ -4,32 +4,24 @@
 
 This project implements an AI-based Gmail and Google Calendar meeting assistant.
 
-The agent reads recent Gmail messages, identifies meeting requests, extracts meeting information, checks Google Calendar availability, and can prepare calendar events or email replies.
+The agent reads recent Gmail messages, identifies meeting requests, extracts meeting information such as dates and times, checks Google Calendar availability, and generates draft email replies accordingly.
 
-The project is implemented in Python using Google APIs and is designed to demonstrate an AI Agent workflow.
+The project was developed in Python using Google APIs as part of an AI Agent assignment.
 
 ---
 
-## Current Features
+## Features
 
 - Gmail OAuth authentication
 - Google Calendar OAuth authentication
 - Read recent Gmail messages
-- Extract email subject
-- Extract email body
-- Meeting Skill specification for AI analysis
+- Detect meeting requests
+- Extract meeting dates
+- Extract one or more proposed meeting times
+- Identify missing meeting information
+- Check Google Calendar availability
+- Generate draft reply emails
 - Project documentation (PRD, PLAN, TODO)
-
----
-
-## Planned Features
-
-- AI meeting request detection
-- Date extraction
-- Multiple meeting time extraction
-- Calendar availability check
-- Automatic meeting scheduling
-- Automatic reply generation when no suitable time is available
 
 ---
 
@@ -39,8 +31,8 @@ The project is implemented in Python using Google APIs and is designed to demons
 - Gmail API
 - Google Calendar API
 - Google OAuth 2.0
+- Regular Expressions (Regex)
 - Markdown
-- AI / LLM
 
 ---
 
@@ -50,19 +42,40 @@ The project is implemented in Python using Google APIs and is designed to demons
 gmail_calendar_agent/
 │
 ├── real_main.py
+├── pyproject.toml
+├── README.md
 ├── PRD.md
 ├── PLAN.md
 ├── TODO.md
-├── gmail_calendar_meeting_skill_prd.md
-├── README.md
-├── credentials.json
-├── token.json
-└── .venv/
+└── gmail_calendar_meeting_skill_prd.md
 ```
+
+---
+
+## Authentication
+
+The project uses Google OAuth 2.0.
+
+The following files are required locally but are intentionally excluded from the GitHub repository:
+
+- credentials.json
+- token.json
+
+---
+
+## Workflow
+
+1. Authenticate with Gmail and Google Calendar.
+2. Read recent Gmail messages.
+3. Detect whether an email is a meeting request.
+4. Extract the meeting date and proposed time(s).
+5. Check Google Calendar availability.
+6. Generate a suitable draft reply.
 
 ---
 
 ## Notes
 
-- `credentials.json` and `token.json` contain authentication information and should not be uploaded to GitHub.
-- The AI meeting analysis will be connected in the final implementation.
+This project demonstrates an end-to-end workflow for processing meeting requests using Gmail and Google Calendar APIs.
+
+The current implementation focuses on meeting request detection, calendar availability checking, and draft reply generation, and can be extended in the future with more advanced LLM-based language understanding.
